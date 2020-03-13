@@ -25,7 +25,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+        "bundleIdentifier": "com.shhan608.diary",
+        "buildNumber": "1.0.0"
+    },
+    "description": ""
   }
 }
