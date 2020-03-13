@@ -1,24 +1,50 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
+import {CardView} from '../components/CardView'
+
 import { MonoText } from '../components/StyledText';
+import CardContainer from "@react-navigation/stack/src/views/Stack/CardContainer";
 
 export default function HomeScreen() {
+
+  var state = {
+    data: [{
+      image: "https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg",
+      name: "요리",
+      address: "주소"
+    }],
+    isLoading: false
+  };
+
+  console.log(state.data.map);
+
+  /*state.data.push(
+      {
+        image: "https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg",
+        name: "요리",
+        address: "주소"
+      }
+  );*/
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
+          <Text style={{fontSize: 25, fontWeight: 'bold'}} >한채아와</Text>
+          <Text style={{fontSize: 17}} >만난지 19개월 (생후 600일)</Text>
         </View>
+
+        <ScrollView>
+          {state.data.map((data, index) => (
+              <CardView
+                  data={data}
+                  key={index}
+              />
+          ))}
+        </ScrollView>
 
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
@@ -105,7 +131,8 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   welcomeContainer: {
-    alignItems: 'center',
+    fontSize : 50,
+    marginLeft: 30,
     marginTop: 10,
     marginBottom: 20,
   },

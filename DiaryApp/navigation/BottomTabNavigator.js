@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import Icon from 'react-native-ionicons'
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -16,19 +17,23 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
-        name="Home"
+        name="Diary"
         component={HomeScreen}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: '일기',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-information" />,
         }}
       />
       <BottomTab.Screen
-        name="Links"
+        name="Setting"
         component={LinksScreen}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: '설정',
+          tabBarIcon: ({ focused }) => {
+              return (
+                  <TabBarIcon focused={focused} name="md-information" />
+              );
+          },
         }}
       />
     </BottomTab.Navigator>
