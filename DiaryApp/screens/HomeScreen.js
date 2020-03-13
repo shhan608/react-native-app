@@ -3,7 +3,7 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
-import {CardView} from '../components/CardView'
+import CardView from '../components/CardView'
 
 import { MonoText } from '../components/StyledText';
 import CardContainer from "@react-navigation/stack/src/views/Stack/CardContainer";
@@ -11,15 +11,15 @@ import CardContainer from "@react-navigation/stack/src/views/Stack/CardContainer
 export default function HomeScreen() {
 
   var state = {
-    data: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg",
-      name: "요리",
-      address: "주소"
-    }],
+    data: [
+      {
+        image: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg',
+        name: '요리',
+        address: '주소'
+      }
+    ],
     isLoading: false
   };
-
-  console.log(state.data.map);
 
   /*state.data.push(
       {
@@ -37,13 +37,12 @@ export default function HomeScreen() {
           <Text style={{fontSize: 17}} >만난지 19개월 (생후 600일)</Text>
         </View>
 
-        <ScrollView>
-          {state.data.map((data, index) => (
-              <CardView
-                  data={data}
-                  key={index}
-              />
-          ))}
+        <ScrollView  style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.CardContainer}>
+            <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}} style={{width:"100%", height: 200, borderRadius: 4}}/>
+            <Text style={styles.CardTitle}>사진</Text>
+            <Text style={styles.CardContent}>주소</Text>
+          </View>
         </ScrollView>
 
         <View style={styles.getStartedContainer}>
@@ -202,5 +201,23 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  CardContainer: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    margin: 20,
+    elevation: 5
+  },
+  CardTitle: {
+    width: '100%',
+    fontWeight: 'bold',
+    fontSize: 20,
+    padding: 3
+  },
+  CardContent: {
+    width: '100%',
+    fontSize: 12,
+    padding: 3
   },
 });
