@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Picker} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
@@ -37,7 +37,23 @@ export default function HomeScreen() {
           <Text style={{fontSize: 17}} >만난지 19개월 (생후 600일)</Text>
         </View>
 
+        <Picker
+            style={{height: 50, width: 100}}>
+          <Picker.Item label="Java" value="java" />
+          <Picker.Item label="JavaScript" value="js" />
+        </Picker>
+
         <ScrollView  style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.CardContainer}>
+            <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}} style={{width:"100%", height: 200, borderRadius: 4}}/>
+            <Text style={styles.CardTitle}>사진</Text>
+            <Text style={styles.CardContent}>주소</Text>
+          </View>
+          <View style={styles.CardContainer}>
+            <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}} style={{width:"100%", height: 200, borderRadius: 4}}/>
+            <Text style={styles.CardTitle}>사진</Text>
+            <Text style={styles.CardContent}>주소</Text>
+          </View>
           <View style={styles.CardContainer}>
             <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}} style={{width:"100%", height: 200, borderRadius: 4}}/>
             <Text style={styles.CardTitle}>사진</Text>
