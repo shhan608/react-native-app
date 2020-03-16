@@ -17,7 +17,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import CardView from './components/CardView';
+import CardView from 'components/CardView';
 
 import {
   Header,
@@ -38,17 +38,9 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={{padding: 20, flex: 1}}>
-            <CardView data={{image: './assets/crocus.jpg', name: '3월 10일', address: '공원에서'}}/>
-            <View style={styles.CardContainer}>
-              <Image source={require('./assets/crocus.jpg')} style={{width:"100%", height: 200, borderRadius: 4}}/>
-              <Text style={styles.CardTitle}>사진</Text>
-              <Text style={styles.CardContent}>주소</Text>
-            </View>
-            <View style={styles.CardContainer}>
-              <Image source={require('./assets/flower.jpg')} style={{width:"100%", height: 200, borderRadius: 4}}/>
-              <Text style={styles.CardTitle}>사진</Text>
-              <Text style={styles.CardContent}>주소</Text>
-            </View>
+            <CardView data={{image: require('assets/crocus.jpg'), name: '3월 10일', address: '공원에서'}}/>
+            <CardView data={{image: require('assets/crocus.jpg'), name: '3월 10일', address: '공원에서'}}/>
+            <CardView data={{image: require('assets/crocus.jpg'), name: '3월 10일', address: '공원에서'}}/>
           </View>
         </ScrollView>
       </SafeAreaView>

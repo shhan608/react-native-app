@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const CardView = ({data}) => (
-
-    <View style={styles.CardContainer}>
-        <Image source={{uri: data.image}} style={{width:"100%", height: 200, borderRadius: 4}}/>
+const CardView = ({data}) => {
+    return (
+        <View style={styles.CardContainer}>
+        <Image source={data.image} style={{width:"100%", height: 200, borderRadius: 4}}/>
         <Text style={styles.CardTitle}>{data.name}</Text>
         <Text style={styles.CardContent}>{data.address}</Text>
-    </View>
-)
+        </View>
+    )
+}
 
 const styles = StyleSheet.create({
     CardContainer: {
@@ -22,12 +23,12 @@ const styles = StyleSheet.create({
         width: '100%',
         fontWeight: 'bold',
         fontSize: 20,
-        padding: 3
+        padding: 10
     },
     CardContent: {
         width: '100%',
         fontSize: 12,
-        padding: 3
+        padding: 10
     },
 });
 
